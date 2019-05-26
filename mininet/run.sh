@@ -1,0 +1,7 @@
+#!/bin/sh
+
+CONTROLLER_IP="$(dig +short floodlight)"
+CONTROLLER_PORT="6653"
+OPENFLOW_VERSION="OpenFlow14"
+
+python main.py $CONTROLLER_IP $CONTROLLER_PORT $OPENFLOW_VERSION $1 $2 $3 $4 $5 $6

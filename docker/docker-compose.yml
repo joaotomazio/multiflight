@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mininet:
+    container_name: 'mininet'
+    build:
+      context: ./mininet
+    image: jdtomazio/mininet
+    tty: true
+    privileged: true
+    environment:
+      - DISPLAY=host.docker.internal:0
+    volumes:
+      - ../mininet:/root/mininet
+      - /lib/modules:/lib/modules
+      - /tmp/.X11-unix:/tmp/.X11-unix
+  floodlight:
+    container_name: 'floodlight'
+    build:
+      context: ./floodlight
+    image: jdtomazio/floodlight
+    ports:
+      - "8080:8080"
+    tty: true
+    volumes:
+      - ../floodlight:/root/floodlight
+
